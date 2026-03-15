@@ -32,6 +32,9 @@ public class BorrowService {
     @Autowired
     PersonRepository personRepository;
 
+    @Autowired
+    private EmailService emailService;
+
     private static final double LATE_FEE_PER_DAY = 0.5;
 
     public Page<BorrowDto> getBorrowedBooksForPerson (@PathVariable Long personId, Pageable pageable) {
@@ -77,6 +80,8 @@ public class BorrowService {
         borrow.setBorrowedAt(LocalDate.now());
         borrow.setDueDate(LocalDate.now().plusDays(2));
         book.setAvailable(false);
+
+        emailService.sendPlainText("noreply@gmail.com", "Library borrow", "Book return date is " + borrow.getDueDate());
 
         return borrowRepository.save(borrow);
     }
