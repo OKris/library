@@ -103,8 +103,8 @@ public class BorrowService {
             Borrow borrow = new Borrow();
             borrow.setBook(book);
             borrow.setPerson(person);
-            borrow.setBorrowedAt(LocalDate.now().minusDays(7));
-            borrow.setDueDate(LocalDate.now().minusDays(2));
+            borrow.setBorrowedAt(LocalDate.now());
+            borrow.setDueDate(LocalDate.now().plusDays(2));
             book.setAvailable(false);
             bookRepository.save(book);
 
