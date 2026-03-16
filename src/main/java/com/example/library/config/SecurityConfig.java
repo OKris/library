@@ -57,9 +57,9 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        //config.setAllowedOrigins(List.of("http://localhost:5173"));
+        config.setAllowedOrigins(List.of("http://localhost:5173", "https://library-front-3qvv.onrender.com/"));
         //config.setAllowedOrigins(List.of(frontendUrl));
-        config.setAllowedOrigins(List.of("*")); // RestControllerist võin ära võtta @CrossOrigin
+        //config.setAllowedOrigins(List.of("*")); // RestControllerist võin ära võtta @CrossOrigin
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         config.setAllowCredentials(true);
