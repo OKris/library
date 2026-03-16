@@ -43,4 +43,12 @@ public class OverdueService {
             }
         }
     }
+
+
+    @Scheduled(cron = "0 */10 * * * *")
+    public void callUrlEveryTenMinutes() {
+        String url = "https://library-nmpw.onrender.com/books";
+        restTemplate.getForObject(url, String.class);
+        System.out.println(LocalDateTime.now() + "- Called " + url + "-> OK");
+    }
 }
