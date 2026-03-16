@@ -25,7 +25,7 @@ public class OverdueService {
     }
 
 
-    @Scheduled(cron = "0 0 8 ? * MON-FRI")
+    @Scheduled(cron = "0 */2 * * * ?")
     public void checkOverdueBooks() {
         List<Borrow> activeBorrows = borrowRepository.findAllByReturnedAtIsNull();
 
