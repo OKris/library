@@ -31,4 +31,11 @@ public class Book {
 
     @Column(name = "available", nullable = false)
     private Boolean available = true;
+
+    public Book(String name, String genre, String author, int year) {
+        this.name = name;
+        this.genre = genre;
+        this.author = author;
+        this.year = year;
+    }
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,4 +34,15 @@ public class Person {
     @OneToMany(mappedBy = "person")
     private List<Borrow> borrowedBooks = new ArrayList<>();
 
+    public Person(String firstName, String lastName, String email, String password, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public boolean isEmpty() {
+        return false;
+    }
 }
